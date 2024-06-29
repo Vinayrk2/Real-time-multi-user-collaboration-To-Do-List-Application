@@ -39,4 +39,5 @@ def join_group(request,id):
 
 def group_page(request,id):
     group = Group.objects.get(id=id)
+    tasks = group.tasks.all()
     return render(request, "group.html", {"group":group})

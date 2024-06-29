@@ -59,7 +59,7 @@
 
             <!-- project Loop -->
             <div class="row">
-                <h5><a href=" {{Project1}} ">{{Project 1}}</a></h5>
+                <h5><a href=" "></a></h5>
                 
                 <table class="table table-hover">
                     <thead>
@@ -72,6 +72,8 @@
                         <th>Summary</th>
                     </thead>
                     <tbody>
+                        {% if tasks %}
+                        {% for task in tasks %}
                         <tr>
                             <td><input class="form-control" type="text"  value="{{task}}"></td>
                             <td><select class="form-select"> 
@@ -91,8 +93,10 @@
                             </td>
                             <td><input class="form-control" type="text" value="{{Summary}}" ></td>
                         </tr>
+                        {% endfor %}
+                        {% endif %}
                         <!-- task loop end -->
-                        <tr>
+                        <!-- <tr>
                             <td><input class="form-control" type="text"  value="{{task2}}"></td>
                             <td><select class="form-select"> 
                                 <option value="1" selected>Not Started</option>
@@ -109,8 +113,8 @@
                                     <option value="3">High</option>
                                 </select>
                             </td>
-                            <td><input class="form-control" type="text" value="{{Summary2}}" ></td>
-                        </tr>
+                            <td><input class="form-control" type="text" value="{{'hello'}}" ></td>
+                        </tr> -->
                         <tr>
                             <td colspan="6">+New</td>
                         </tr>
@@ -118,8 +122,10 @@
                 </table>
             </div>
             <!-- project loop end -->
-            <div class="row">
-                <h5><a href=" {{Project2}} ">{{Project 2}}</a></h5>                
+
+
+
+            <div class="row">               
                 <table class="table table-hover">
                     <thead>
                         <th>Task Name</th>
@@ -132,7 +138,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input class="form-control" type="text"  value="{{task}}"></td>
+                            {% if subtasks %}
+                            {% for subtask in subtasks %}
+                            <td><input class="form-control" type="text"  value="{{'hello'}}"></td>
                             <td><select class="form-select"> 
                                 <option value="1" selected>Not Started</option>
                                 <option value="2">In Progress</option>
@@ -148,11 +156,13 @@
                                     <option value="3">High</option>
                                 </select>
                             </td>
-                            <td><input class="form-control" type="text" value="{{Summary}}" ></td>
+                            <td><input class="form-control" type="text" value="{{'hello'}}" ></td>
+                            {% endfor %}
+                            {% endif %}
                         </tr>
                         <!-- task loop end -->
-                        <tr>
-                            <td><input class="form-control" type="text"  value="{{task2}}"></td>
+                        <!-- <tr>
+                            <td><input class="form-control" type="text"  value="{{'hello'}}"></td>
                             <td><select class="form-select"> 
                                 <option value="1" selected>Not Started</option>
                                 <option value="2">In Progress</option>
@@ -168,8 +178,8 @@
                                     <option value="3">High</option>
                                 </select>
                             </td>
-                            <td><input class="form-control" type="text" value="{{Summary2}}" ></td>
-                        </tr>
+                            <td><input class="form-control" type="text" value="{{'hello'}}" ></td>
+                        </tr> -->
                         <tr>
                             <td colspan="6">+New</td>
                         </tr>
@@ -178,7 +188,7 @@
             </div>
         
         </div>
-
+        <button class="btn btn-primary mx-5"> Create Project </button>
 
     </div>
 
