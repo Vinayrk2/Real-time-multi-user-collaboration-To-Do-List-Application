@@ -34,6 +34,7 @@ class Group(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=200)
     members = models.ManyToManyField(User, related_name='groups')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owned_groups', default=None)
 
     @staticmethod
     def getGroup(id):
