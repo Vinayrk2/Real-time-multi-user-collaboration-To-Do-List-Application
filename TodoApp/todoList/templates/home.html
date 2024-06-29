@@ -29,7 +29,7 @@
                                 <img src="profile" alt="pic" height="100px" width="100px">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end ">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Log Out</a></li>
                             </ul>
                         </li>
@@ -98,6 +98,54 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">User Profile</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="post">
+                <table class="table">
+                    <!-- <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead> -->
+                    <tbody>
+    
+                      <tr>
+                        <th scope="row">Profile Image</th>
+                        <img src="{{user.profile}}" alt="" height="100px" width="100px">
+                      </tr>  
+                      <tr>
+                        <th scope="row">Status</th>
+                        <td>{{user.status}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Username</th>
+                        <td>{{request.session.username}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Email Id</th>
+                        <td colspan="2">{{request.session.email}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+            </div>
+          </div>
+        </div>
+      </div>    
 </body>
 
 </html>
