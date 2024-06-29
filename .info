@@ -40,3 +40,10 @@ status
 Priority
 discription
 editing Member
+
+
+comments
+id
+sub_task_id
+member_id
+msg
