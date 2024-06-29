@@ -1,0 +1,10 @@
+Admin : edit, create, (Manager), comment, update
+Viewer : read
+Member : view, edit, comment
+
+Fiels : 
+1. Main Project Title
+2. sub-tasks : title, member, date, progress, summery, comments, priorities
+
+Realtime updates
+
