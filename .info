@@ -40,3 +40,11 @@ status
 Priority
 discription
 editing Member
+
+
+comments
+id
+task_id
+member_id
+msg
+Created_at
