@@ -87,7 +87,7 @@
                             <td>
                                 <select class="form-select"> 
                                     <option value="1" >low</option>
-                                    <option value="2" selected>Medium</option>
+                                      <option value="2" selected>Medium</option>
                                     <option value="3">High</option>
                                 </select>
                             </td>
@@ -119,6 +119,8 @@
                             <td colspan="6">+New</td>
                         </tr>
                     </tbody>
+
+                    
                 </table>
             </div>
             <!-- project loop end -->
@@ -188,10 +190,86 @@
             </div>
         
         </div>
-        <button class="btn btn-primary mx-5"> Create Project </button>
+        <button class="btn btn-primary mx-5" onclick="addProject()"> Create Project </button>
 
     </div>
 
+    <script>
+        let tbody = document.querySelector('tbody');
 
+        function addProject() {
+            tbody.innerHTML += `       
+            
+                        <div class="row">
+                <h3>Projects:</h3>
+                filters
+            </div>
+            <div class="row">
+                <h5><a href=" "></a></h5>
+                
+                <table class="table table-hover">
+                    <thead>
+                        <th>Task Name</th>
+                        <th>status</th>
+                        <th>Assignee</th>
+                       
+                        <th>Due</th>
+                        <th>Priority</th>
+                        <th>Summary</th>
+                    </thead>
+                    <tbody>
+                        {% if tasks %}
+                        {% for task in tasks %}
+                        <tr>
+                            <td><input class="form-control" type="text"  value="{{task}}"></td>
+                            <td><select class="form-select"> 
+                                <option value="1" selected>Not Started</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
+                              </select>
+                            </td>
+                            <td> user1 ,user2... </td>
+                            <td> <input class="form-control" type="date" name="date" id="date"/> </td>
+                            <td>
+                                <select class="form-select"> 
+                                    <option value="1" >low</option>
+                                      <option value="2" selected>Medium</option>
+                                    <option value="3">High</option>
+                                </select>
+                            </td>
+                            <td><input class="form-control" type="text" value="{{Summary}}" ></td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- task loop end -->
+                        <!-- <tr>
+                            <td><input class="form-control" type="text"  value="{{task2}}"></td>
+                            <td><select class="form-select"> 
+                                <option value="1" selected>Not Started</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
+                              </select>
+                            </td>
+                            <td> user1 ,user2... </td>
+                            <td> <input class="form-control" type="date" name="date" id="date"/> </td>
+                            <td>
+                                <select class="form-select"> 
+                                    <option value="1" >low</option>
+                                    <option value="2" selected>Medium</option>
+                                    <option value="3">High</option>
+                                </select>
+                            </td>
+                            <td><input class="form-control" type="text" value="{{'hello'}}" ></td>
+                        </tr> -->
+                        <tr>
+                            <td colspan="6">+New</td>
+                        </tr>
+                    </tbody>
+
+                    
+                </table>
+            </div>`
+        }
+    </script>
 </body>
 </html>
