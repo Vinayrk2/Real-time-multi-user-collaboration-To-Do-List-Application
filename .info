@@ -8,3 +8,35 @@ Fiels :
 
 Realtime updates
 
+USER
+Name
+pass
+email
+profile
+active
+id
+
+Groups
+Name
+Members
+id
+
+
+Tasks
+id
+group_id
+Title
+Owner
+Date Created
+Discription
+
+Sub-tasks
+id
+task_id
+Tilte
+Aigsnee
+due date
+status
+Priority
+discription
+editing Member
