@@ -18,6 +18,14 @@ class User(models.Model):
     @staticmethod
     def getUser(id):
         return User.objects.filter(id=id)[0]
+
+    @staticmethod
+    def getUser(email, password):
+        if User.objects.filter(email=email)[0]:
+            user = User.objects.filter(email=email)[0]
+            if user.check_password(password):
+                return user
+        return None
     
     def __str__(self):
         return self.username
@@ -92,3 +100,13 @@ class subTask(models.Model):
     @staticmethod
     def getSubTaskByPriority(priority):
         return subTask.objects.filter(priority=priority)
+
+class Comment(models.Model):
+    text = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    subtask = models.ForeignKey(subTask, on_delete=models.CASCADE, related_name='comments')
+
+    def __str__(self):  
+        return self.text
