@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <style>
-    
-        .app{
+        .app {
             height: 100vh;
             width: 100vw;
         }
+
         form {
             width: 500px;
             max-width: 700px;
@@ -20,42 +20,69 @@
             border-radius: 30px;
             padding: 50px;
             background: #131417b9;
-            color:white;
+            color: white;
+        }
+        #file{
+            display: none;
         }
     </style>
 
 </head>
 
 <body>
-    
+
     <div class="app container d-flex align-items-center">
-        
+
         <div class="row mx-auto">
-        <div class="signup d-block">
-        <form method="post" action="/auth/signup">
-            {% csrf_token %}
-            <div class="mb-4">
-                <h1 class="title d-flex justify-content-center">Sign Up</h1>
-                </br>
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input v-model="email" name="email" type="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="E-mail" required>
+            <div class="signup d-block">
+                <form action="/auth/signup" method="post">
+                    
+                    <div class="mb-4">
+                        <h1 class="title d-flex justify-content-center">Sign Up</h1>
+                        </br>
+                    </div>
+                    <div class="mb-4 justify-content-center">
+                        <label class="d-block">Image:
+                            <input type="file" id="file" accept="image/*" onchange="loadFile(event)" name="file">
+                            <img src="image/more.png" class="d-block mx-auto" id="output" height="100px" width="100px"
+                                style="border-radius: 50%; background-color: white;" />
+                        </label>
+                    </div>
+                    <div class="mb-4">
+                        <label for="InputEmail1" class="form-label">Email address</label>
+                        <input v-model="email" name="InputEmail1" type="email" class="form-control" id="InputEmail1"
+                            aria-describedby="emailHelp" placeholder="E-mail" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="InputPassword1" class="form-label">User Name:</label>
+                        <input type="text" name="InputPassword1" class="form-control" id="InputPassword1" placeholder="User Name"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="InputPassword1" class="form-label">Password:</label>
+                        <input type="password" name="InputPassword1" class="form-control" id="InputPassword1" placeholder="password"
+                            required>
+                    </div>
+                    <div class="d-grid gap-2 mt-5">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                </form>
             </div>
-            <div class="mb-4">
-                <label for="exampleInputPassword1" class="form-label">User Name:</label>
-                <input type="text" name="username" class="form-control" id="exampleInputPassword1"
-                    placeholder="User Name" required>
-            </div>
-            <div class="mb-4">
-                <label for="exampleInputPassword1" class="form-label">Password:</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1"
-                    placeholder="password" required>
-            </div>
-          
-            <div class="d-grid gap-2 mt-5">
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </div>
-        </form></div></div>
+        </div>
+
+        <script>
+            
+            var loadFile = function (event) {
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function () {
+                    URL.revokeObjectURL(output.src) // free memory
+                }
+            };
+        </script>
+
+
+
     </div>
 </body>
 
