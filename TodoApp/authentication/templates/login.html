@@ -33,19 +33,26 @@
         <div class="row mx-auto">
         <div class="signup d-block">
         <form method="post" action="/auth/login">
+            {% csrf_token %}
             <div class="mb-4">
                 <h1 class="title d-flex justify-content-center">Login</h1>
                 </br>
                 <label for="InputEmail1" class="form-label">Email address</label>
-                <input v-model="email" name="InputEmail1" type="email" class="form-control" id="InputEmail1"
+                <input v-model="email" name="email" type="email" class="form-control" id="InputEmail1"
                     aria-describedby="emailHelp" placeholder="E-mail" required>
             </div>
             <div class="mb-4">
                 <label for="InputPassword1" class="form-label">Password:</label>
-                <input type="password" name="InputPassword1" class="form-control" id="InputPassword1"
+                <input type="password" name="password" class="form-control" id="InputPassword1"
                     placeholder="password" required>
             </div>
-          
+            
+            <div class="mb-4">
+                <a href="/auth/signup">sign up</a>
+            </div>
+            
+            
+
             <div class="d-grid gap-2 mt-5">
                 <button type="submit" class="btn btn-primary">Log In</button>
             </div>
