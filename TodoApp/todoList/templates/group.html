@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+        <style>
+            input{
+                border: 0;
+            }
+        </style>
+</head>
+    
+<body>
+
+    <div class="container-fluid">
+        <div class="header">
+            <nav class="navbar navbar-expand bg-secondary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">NoDo</a>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="{{profile}}" alt="pic" height="100px" width="100px">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end ">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <h1>{{Group Name}}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Projects:</h3>
+                filters
+            </div>
+
+            <!-- project Loop -->
+            <div class="row">
+                <h5><a href=" {{Project1}} ">{{Project 1}}</a></h5>
+                
+                <table class="table table-hover">
+                    <thead>
+                        <th>Task Name</th>
+                        <th>status</th>
+                        <th>Assignee</th>
+                       
+                        <th>Due</th>
+                        <th>Priority</th>
+                        <th>Summary</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="form-control" type="text"  value="{{task}}"></td>
+                            <td><select class="form-select"> 
+                                <option value="1" selected>Not Started</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
+                              </select>
+                            </td>
+                            <td> user1 ,user2... </td>
+                            <td> <input class="form-control" type="date" name="date" id="date"/> </td>
+                            <td>
+                                <select class="form-select"> 
+                                    <option value="1" >low</option>
+                                    <option value="2" selected>Medium</option>
+                                    <option value="3">High</option>
+                                </select>
+                            </td>
+                            <td><input class="form-control" type="text" value="{{Summary}}" ></td>
+                        </tr>
+                        <!-- task loop end -->
+                        <tr>
+                            <td><input class="form-control" type="text"  value="{{task2}}"></td>
+                            <td><select class="form-select"> 
+                                <option value="1" selected>Not Started</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
+                              </select>
+                            </td>
+                            <td> user1 ,user2... </td>
+                            <td> <input class="form-control" type="date" name="date" id="date"/> </td>
+                            <td>
+                                <select class="form-select"> 
+                                    <option value="1" >low</option>
+                                    <option value="2" selected>Medium</option>
+                                    <option value="3">High</option>
+                                </select>
+                            </td>
+                            <td><input class="form-control" type="text" value="{{Summary2}}" ></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">+New</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- project loop end -->
+            <div class="row">
+                <h5><a href=" {{Project2}} ">{{Project 2}}</a></h5>                
+                <table class="table table-hover">
+                    <thead>
+                        <th>Task Name</th>
+                        <th>status</th>
+                        <th>Assignee</th>
+                       
+                        <th>Due</th>
+                        <th>Priority</th>
+                        <th>Summary</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="form-control" type="text"  value="{{task}}"></td>
+                            <td><select class="form-select"> 
+                                <option value="1" selected>Not Started</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
+                              </select>
+                            </td>
+                            <td> user1 ,user2... </td>
+                            <td> <input class="form-control" type="date" name="date" id="date"/> </td>
+                            <td>
+                                <select class="form-select"> 
+                                    <option value="1" >low</option>
+                                    <option value="2" selected>Medium</option>
+                                    <option value="3">High</option>
+                                </select>
+                            </td>
+                            <td><input class="form-control" type="text" value="{{Summary}}" ></td>
+                        </tr>
+                        <!-- task loop end -->
+                        <tr>
+                            <td><input class="form-control" type="text"  value="{{task2}}"></td>
+                            <td><select class="form-select"> 
+                                <option value="1" selected>Not Started</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
+                              </select>
+                            </td>
+                            <td> user1 ,user2... </td>
+                            <td> <input class="form-control" type="date" name="date" id="date"/> </td>
+                            <td>
+                                <select class="form-select"> 
+                                    <option value="1" >low</option>
+                                    <option value="2" selected>Medium</option>
+                                    <option value="3">High</option>
+                                </select>
+                            </td>
+                            <td><input class="form-control" type="text" value="{{Summary2}}" ></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">+New</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
