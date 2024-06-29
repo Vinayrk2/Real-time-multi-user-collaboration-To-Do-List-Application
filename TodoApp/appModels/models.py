@@ -43,7 +43,12 @@ class Group(models.Model):
         return self.name
     def getjoinlink(self):
         return f"http://localhost:8000/todo/join/{self.id}"
-
+    def getGroupsByUser(user):
+        groups = []
+        user = User.objects.filter(id=user)[0]
+        # groups.append(Group.objects.filter(members=user))
+        groups.extend(Group.objects.filter(owner=user))
+        return groups
 
 class Task(models.Model):
     title = models.CharField(max_length=100)

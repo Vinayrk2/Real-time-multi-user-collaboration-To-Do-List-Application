@@ -30,7 +30,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end ">
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Log Out</a></li>
+                                <li><a class="dropdown-item" href="/auth/logout/">Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -47,18 +47,26 @@
             </div>
             <div class="row text-center mt-3 mx-auto">
                 <div class="col-lg-9 mx-auto">
-
                     <div class="row">
+                    {% if groups %}
+                    {% for group in groups %}
+                        <a href="/todo/group/{{group.id}}/">
                         <div class="col-lg-4 col-md-6">
                             <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
                                 <div class="card-header"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Group 1</h5>
-                                    <p class="card-text">number members</p>
+                                    <h5 class="card-title">{{group.name}}</h5>
+                                    <p class="card-text">{{group.members.all.count}} members</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                    </a>
+                        
+                        {% endfor %}
+                        {% endif %}
+                        </div>
+                        
+                        <!-- <div class="col-lg-4 col-md-6">
                             <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
                                 <div class="card-header"></div>
                                 <div class="card-body">
@@ -66,7 +74,7 @@
                                     <p class="card-text">4 members</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-lg-4 col-md-6">
                             <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
