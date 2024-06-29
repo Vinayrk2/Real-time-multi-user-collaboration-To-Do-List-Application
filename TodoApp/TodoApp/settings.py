@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +43,8 @@ INSTALLED_APPS = [
     'TodoApp',
     'authentication',
     'todoList',
-    'appModels'
+    'appModels',
+    'asynctodo'
 ]
 
 MIDDLEWARE = [
@@ -74,7 +77,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TodoApp.wsgi.application'
+# WSGI_APPLICATION = 'TodoApp.wsgi.application'
+ASGI_APPLICATION = 'TodoApp.asgi.application'
 
 
 # Database

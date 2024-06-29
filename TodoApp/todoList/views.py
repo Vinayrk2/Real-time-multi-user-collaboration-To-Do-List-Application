@@ -1,9 +1,13 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, HttpResponsePermanentRedirect
 from appModels.models import User, Group
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html")
+    if 'username' not in request.session:
+        return HttpResponsePermanentRedirect('/login')
+    user = User.getUserByUsername(request.session['username'])
+    groups = user.groups.all()
+    return render(request, "home.html",{"groups":groups})
 
 def create_group(request):
     if request.method == "POST":

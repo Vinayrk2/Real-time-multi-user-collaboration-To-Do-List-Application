@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket ToDo App</title>
+</head>
+<body>
+    <h1>WebSocket To-Do App</h1>
+    <input type="text" id="todoInput" placeholder="Enter a new to-do">
+    <button onclick="createTodo()">Add To-Do</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:8000/ws/todo/');
+
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            const todoList = document.getElementById('todoList');
+
+            if (data.action === 'create') {
+                const listItem = document.createElement('li');
+                listItem.id = `todo-${data.id}`;
+                listItem.innerText = data.text;
+                listItem.onclick = () => deleteTodo(data.id);
+                todoList.appendChild(listItem);
+            } else if (data.action === 'delete') {
+                const listItem = document.getElementById(`todo-${data.id}`);
+                if (listItem) {
+                    todoList.removeChild(listItem);
+                }
+            }
+        };
+// 👍
+        function createTodo() {
+            const input = document.getElementById('todoInput');
+            const message = input.value;
+            if (message.trim()) {
+                socket.send(JSON.stringify({ 'action': 'create', 'message': message }));
+                input.value = '';
+            }
+        }
+
+        function deleteTodo(id) {
+            socket.send(JSON.stringify({ 'action': 'delete', 'id': id }));
+        }
+    </script>
+</body>
+</html>
