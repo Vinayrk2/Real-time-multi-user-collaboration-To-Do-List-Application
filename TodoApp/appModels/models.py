@@ -16,8 +16,8 @@ class User(models.Model):
         return check_password(password, self.password)
     
     @staticmethod
-    def getUser(id):
-        return User.objects.filter(id=id)[0]
+    def getUserByUsername(username):
+        return User.objects.filter(username=username)[0]
 
     @staticmethod
     def getUser(email, password):
@@ -41,7 +41,9 @@ class Group(models.Model):
         return Group.objects.filter(id=id)[0]
     def __str__(self):
         return self.name
-    
+    def getjoinlink(self):
+        return f"http://localhost:8000/todo/join/{self.id}"
+
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
