@@ -54,10 +54,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'TodoApp.urls'
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'static')],
+        'DIRS': [os.path.join(BASE_DIR, 'todoList','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
