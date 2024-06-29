@@ -35,8 +35,8 @@
 
         <div class="row mx-auto">
             <div class="signup d-block">
-                <form action="/auth/signup" method="post">
-                    
+                <form action="/auth/signup/" method="post">
+                    {% csrf_token %} 
                     <div class="mb-4">
                         <h1 class="title d-flex justify-content-center">Sign Up</h1>
                         </br>
@@ -44,7 +44,7 @@
                     <div class="mb-4 justify-content-center">
                         <label class="d-block">Image:
                             <input type="file" id="file" accept="image/*" onchange="loadFile(event)" name="file">
-                            <img src="../../TodoApp/static/more.png" class="d-block mx-auto" id="output" height="100px" width="100px"
+                            <img src="/static/more.png" class="d-block mx-auto" id="output" height="100px" width="100px"
                                 style="border-radius: 50%; background-color: white;" />
                         </label>
                     </div>
