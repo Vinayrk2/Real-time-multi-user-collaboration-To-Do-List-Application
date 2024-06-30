@@ -13,10 +13,13 @@ def login(request):
             email = request.POST.get('email')
             password = request.POST.get('password')
             user = User.getUser(email, password)
-            request.session['username'] = user.username
-            # request.session['user_id'] = user.id
-            request.session['email'] = user.email
-            return HttpResponsePermanentRedirect('/todo/')
+            if user : 
+                request.session['username'] = user.username
+                # request.session['user_id'] = user.id
+                request.session['email'] = user.email
+                return HttpResponsePermanentRedirect('/todo/')
+            else : 
+                return HttpResponse('Invalid password')
         except:
             return HttpResponse('Invalid username or password')
     return render(request, 'login.html')
