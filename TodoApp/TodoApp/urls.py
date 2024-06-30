@@ -20,6 +20,10 @@ from todoList import urls as todoList_urls
 from authentication import urls as authentication_urls
 import TodoApp.views as views
 
+
+handler404 = 'TodoApp.views.handler404'
+handler500 = 'TodoApp.views.handler500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', include(todoList_urls)),

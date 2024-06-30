@@ -36,6 +36,8 @@ def signup(request):
             password = request.POST.get('password')
             email = request.POST.get('email')
             
+            print(username, password, email)
+
             user = User()
             user.username = username
             user.password = password
@@ -50,4 +52,4 @@ def signup(request):
 
 def logout(request):
     request.session.flush()
-    return HttpResponsePermanentRedirect('/auth/login')
+    return HttpResponsePermanentRedirect('/')

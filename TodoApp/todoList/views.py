@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, HttpResponsePermanentRedirect
 from appModels.models import User, Group
 
 # Create your views here.
@@ -20,7 +20,7 @@ def create_group(request):
             group.owner = user
             group.members.add(user)
             group.save()
-            return HttpResponse("Group created successfully.")
+            return HttpResponsePermanentRedirect("/todo/")
     return HttpResponse("There is an error in creating the group, please try again later.")
 
 def join_group(request,id):
