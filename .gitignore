@@ -3,3 +3,10 @@ _pycache_
 __pycache__
 migrations
 db.sqlite3
+*.sqlite3
+migrations/*
+__pycache__/*
+*.log
+*.pyc
+*.pyo
+*.pyd
